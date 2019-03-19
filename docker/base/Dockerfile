@@ -1,11 +1,10 @@
 # Go cross compiler (xgo): Base cross-compilation layer
-# Copyright (c) 2014 Péter Szilágyi. All rights reserved.
 #
 # Released under the MIT license.
 
 FROM ubuntu:16.04
 
-MAINTAINER Péter Szilágyi <peterke@gmail.com>
+MAINTAINER F <f@rawtx.com>
 
 # Mark the image as xgo enabled to support xgo-in-xgo
 ENV XGO_IN_XGO 1
@@ -70,12 +69,12 @@ ADD update_ios.sh /update_ios.sh
 ENV UPDATE_IOS /update_ios.sh
 RUN chmod +x $UPDATE_IOS
 
-RUN \
-  IOS_SDK_PATH=https://sdks.website/dl/iPhoneOS9.3.sdk.tbz2     && \
-  $FETCH $IOS_SDK_PATH db5ecf91617abf26d3db99e769bd655b943905e5 && \
-  mv `basename $IOS_SDK_PATH` iPhoneOS9.3.sdk.tar.bz2           && \
-  $UPDATE_IOS /iPhoneOS9.3.sdk.tar.bz2                          && \
-  rm -rf /iPhoneOS9.3.sdk.tar.bz2
+#RUN \
+#  IOS_SDK_PATH=https://sdks.website/dl/iPhoneOS9.3.sdk.tbz2     && \
+#  $FETCH $IOS_SDK_PATH db5ecf91617abf26d3db99e769bd655b943905e5 && \
+#  mv `basename $IOS_SDK_PATH` iPhoneOS9.3.sdk.tar.bz2           && \
+#  $UPDATE_IOS /iPhoneOS9.3.sdk.tar.bz2                          && \
+#  rm -rf /iPhoneOS9.3.sdk.tar.bz2
 
 # Configure the container for Android cross compilation
 ENV ANDROID_NDK         android-ndk-r11c
