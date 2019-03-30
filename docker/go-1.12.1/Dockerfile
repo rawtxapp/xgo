@@ -2,7 +2,7 @@
 #
 # Released under the MIT license.
 
-FROM rawtx/xgo-base
+FROM rawtx/xgo-base:latest
 
 MAINTAINER F <f@rawtx.com>
 
